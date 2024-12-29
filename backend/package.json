@@ -1,0 +1,27 @@
+{
+  "name": "ticket-system-backend",
+  "version": "1.0.0",
+  "description": "Bus ticket reservation system backend",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "db:tables": "psql -U postgres -d ticket_system -f ../database/tables.sql",
+    "db:procedures": "psql -U postgres -d ticket_system -f ../database/procedures.sql",
+    "db:data": "psql -U postgres -d ticket_system -f ../database/reset_tables.sql",
+    "db:reset": "npm run db:tables && npm run db:procedures && npm run db:data"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3",
+    "ticket-system-backend": "file:"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
